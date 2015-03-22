@@ -1,0 +1,80 @@
+// all files have to begin with the test board initialization
+board=
+{000000000000000000
+00000A000000000000
+000000000000000000
+000000000000000000}
+
+
+// after that you determine the starting conditions meaning, the cmdline arguments that will
+// be passed to your main program some examples:
+// start=<NONE>,<NONE>
+
+// start=<NONE>,speedup=3 // THIS IS NOT PERMITTED!
+
+// start=speedup=3,<NONE> // this is ok
+// start="speedup=3","rule=45-45-45-45-45"
+// start="rule=45-45-45-45-45"
+// start="rule=315-315-315-315-315","speedup=2"
+
+start=<NONE>,<NONE>
+
+
+// here the print command and the expected output. board outputs are always in enclosing brackets
+input="print"
+output=
+{000000000000000000
+00000a000000000000
+000000000000000000
+000000000000000000}
+
+
+// if there is no expected output for the given input write output=<NONE>
+input="move 1"output=<NONE>
+
+input="print"output={
+00000a000000000000
+000000000000000000
+000000000000000000
+000000000000000000}
+
+// this is also permitted
+input="move 2"
+output=<NONE>
+
+
+input="print"
+output={
+000033000000000000
+0000a0000000000000
+000000000000000000
+000000000000000000}
+
+
+input="move 1"
+output=<NONE>
+
+
+input="print"
+output={
+000033000000000000
+00003a000000000000
+000000000000000000
+000000000000000000
+}
+
+
+// this is an example for a simple direction command
+input="direction a"
+output="N"
+
+
+// another example
+input="field 1,2
+output="0"
+
+
+//if you want to check for an error just write what you expect an error would be
+// and give the cause so you know why the error should have been there
+input="move 2 "
+output=<ERROR,cause="no whitespace after the move command is allowed">
